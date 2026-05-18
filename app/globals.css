@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffdf5;
+  --foreground: #000000;
+  --accent: #ff6b6b;
+  --secondary: #ffd93d;
+  --muted: #c4b5fd;
+  --white: #ffffff;
+  --shadow-sm: 4px 4px 0 0 #000;
+  --shadow-md: 8px 8px 0 0 #000;
+  --shadow-lg: 12px 12px 0 0 #000;
+  --shadow-xl: 16px 16px 0 0 #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+*::selection {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-halftone {
+  background-image: radial-gradient(#000 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.bg-radial-dots {
+  background-image: radial-gradient(circle, #000 2px, transparent 2.5px);
+  background-size: 30px 30px;
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.18'/%3E%3C/svg%3E");
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+}
+
+.neo-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.neo-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.neo-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.neo-shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.neo-panel {
+  border: 4px solid #000;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 4px solid #000;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition:
+    transform 120ms linear,
+    box-shadow 120ms linear,
+    background-color 120ms linear;
+  box-shadow: var(--shadow-sm);
+}
+
+.neo-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.neo-card {
+  border: 4px solid #000;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out;
+}
+
+.neo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
