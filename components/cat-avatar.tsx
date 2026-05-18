@@ -641,33 +641,30 @@ export function CatAvatar({ styles }: CatAvatarProps) {
       </div>
 
       <div className={styles.avatarPanel}>
-        <button
-          type="button"
-          className={styles.avatarPhotoFrameButton}
-          onClick={() => setViewerTarget({ type: "portrait" })}
-        >
-          <div className={styles.avatarPhotoFrame}>
-            <button
-              type="button"
-              className={styles.avatarMiniShotButton}
-              onClick={(event) => {
-                event.stopPropagation();
-                setViewerTarget({ type: "sticker" });
-              }}
-            >
-              <img
-                src={stickerPreview}
-                alt="馒头近景贴纸"
-                className={styles.avatarMiniShot}
-              />
-            </button>
+        <div className={styles.avatarPhotoFrame}>
+          <button
+            type="button"
+            className={styles.avatarPhotoFrameButton}
+            onClick={() => setViewerTarget({ type: "portrait" })}
+          >
             <img
               src={portraitPreview}
               alt="馒头主照片"
               className={`${styles.avatarPhoto} ${styles.avatarPortraitPhoto}`}
             />
-          </div>
-        </button>
+          </button>
+          <button
+            type="button"
+            className={styles.avatarMiniShotButton}
+            onClick={() => setViewerTarget({ type: "sticker" })}
+          >
+            <img
+              src={stickerPreview}
+              alt="馒头近景贴纸"
+              className={styles.avatarMiniShot}
+            />
+          </button>
+        </div>
 
         <div className={styles.avatarInfo}>
           <div>
